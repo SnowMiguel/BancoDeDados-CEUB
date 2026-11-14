@@ -12,7 +12,7 @@
 * **Nome do aluno:** Miguel Moreira Neves
 * **Curso:** Engenharia de Software
 * **Matéria:** Bando de Dados II
-* **Professor:** Michel Rosa
+* **Professor:** Michel Junio Ferreira Rosa
 
 ---
 

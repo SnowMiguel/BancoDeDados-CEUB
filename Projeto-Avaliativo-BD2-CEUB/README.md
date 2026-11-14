@@ -1,23 +1,37 @@
-# Projeto Avaliativo Bando de Dados II 
+# Projeto Avaliativo — Administração de Banco de Dados e Transações (PostgreSQL)
 
-> Componente curricular: Banco de Dados II (conteúdos avançados de PostgreSQL). Modalidade: projeto prático da disciplina. Organização: equipes de até 4 alunos. Rubrica interna: 100 pontos, convertidos proporcionalmente para os 3,0 pontos da etapa final do projeto na N2. Desenvolvimento por etapas, com orientação em aula, pesquisa e experimentos entre os encontros. Os prazos específicos de cada turma constam nas tarefas do Sala Online.
----
-> Aplicações acadêmicas, comerciais e financeiras dependem de bancos de dados que preservem os registros e continuem corretos diante de erros, acessos não autorizados e operações simultâneas. Para isso, é necessário compreender tanto as responsabilidades de administração quanto os mecanismos de processamento de transações.
----
-> O projeto foi concebido como uma atividade de aprendizagem por investigação: em vez de reproduzir uma solução pronta, cada equipe formulará hipóteses, testará comandos, observará o comportamento do PostgreSQL, discutirá os resultados e apresentará uma solução tecnicamente justificada.
----
+**Disciplina:** Banco de Dados II — CEUB (2026.2)  
+**Professor:** Me. Michel Junio Ferreira Rosa  
+**Diretório no Repositório:** `Projeto-Avaliativo-BD2-CEUB/`  
+**Cenário:** Controle de inscrições em oficinas da *Semana de Tecnologia* (*Desafio prático: a última vaga*)
 
-## Informações Acadêmicas
+## Integrantes da Equipe
 
-* **Nome do aluno:** Miguel Moreira Neves
-* **Curso:** Engenharia de Software
-* **Matéria:** Bando de Dados II
-* **Professor:** Michel Junio Ferreira Rosa
-
+| Nome Completo | Curso |
+| :--- | :--- |
+| Miguel Moreira Neves | Engenharia de Software |
 ---
 
-## Tecnologias Utilizadas
+## Escopo desta Entrega Parcial (16/11)
 
-Tecnologias, linguagens ou ferramentas usadas no desenvolvimento:
-* SQL, PostgreSQL, pgAdmin4
-* Git, GitHub
+Esta entrega parcial contempla a preparação da base de laboratório e os experimentos iniciais de processamento de transações:
+- **Base de Laboratório (`A1`):** criação do esquema isolado `lab_inscricoes`, tabelas (`estudantes`, `atividades`, `inscricoes`), restrições de integridade, índices e carga inicial fictícia.
+- **Desafio `T1` — Confirmação e Cancelamento:** validação prática de `BEGIN`, `UPDATE`, `ROLLBACK` e `COMMIT` associada às propriedades de **atomicidade** e **durabilidade**.
+- **Desafio `T2` — Disputa pela Última Vaga:** reprodução da condição de corrida entre duas sessões simultâneas (**Sessão A** e **Sessão B**) no nível de isolamento padrão (`READ COMMITTED`), registro da linha do tempo e diagnóstico inicial.
+
+---
+
+## Ambiente e Pré-requisitos
+
+- **SGBD:** PostgreSQL 16 ou superior (testado em PostgreSQL 18).
+- **Cliente SQL:** `psql`, pgAdmin 4.
+- **Banco de Dados de Laboratório:** criar um banco exclusivo (ex.: `bd_semana_tec`) antes de executar os scripts.
+
+---
+
+## Como Reproduzir os Experimentos
+
+### Passo 1 — Criar o banco de laboratório
+No terminal (`psql` conectado ao banco `postgres`) ou via interface gráfica:
+```sql
+CREATE DATABASE bd_semana_tec;

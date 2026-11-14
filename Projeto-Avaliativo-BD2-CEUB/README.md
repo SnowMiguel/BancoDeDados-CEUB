@@ -18,6 +18,6 @@
 
 ## Tecnologias Utilizadas
 
-Liste aqui as tecnologias, linguagens ou ferramentas usadas no desenvolvimento:
+Tecnologias, linguagens ou ferramentas usadas no desenvolvimento:
 * SQL, PostgreSQL, pgAdmin4
 * Git, GitHub

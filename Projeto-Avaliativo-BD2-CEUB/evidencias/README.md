@@ -18,9 +18,6 @@
 
 ## 2. Diagnóstico Técnico Inicial
 
-1. **Por que o índice único e as constraints não impediram o erro?**  
-   As restrições declarativas da tabela `inscricoes` (`CHECK`, `FK` e o índice único parcial `uq_inscricao_ativa_estudante_atividade`) validam apenas a integridade de **cada linha isoladamente** (impedindo o *mesmo* aluno de se inscrever duas vezes). Como as transações inseriram estudantes distintos (`1` e `2`), nenhuma restrição de unicidade foi violada.
-
 ---
 
 ## 3. Dúvidas e Pontos de Discussão com o Professor

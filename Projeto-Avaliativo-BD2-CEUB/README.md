@@ -7,9 +7,9 @@
 
 ## Integrantes da Equipe
 
-| Nome Completo | Curso |
+| Nome Completo | RA |
 | :--- | :--- |
-| Miguel Moreira Neves | Engenharia de Software |
+| Miguel Moreira Neves | 22611825 |
 ---
 
 ## Escopo desta Entrega Parcial (16/11)

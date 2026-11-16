@@ -20,14 +20,8 @@
 
 1. **Por que o índice único e as constraints não impediram o erro?**  
    As restrições declarativas da tabela `inscricoes` (`CHECK`, `FK` e o índice único parcial `uq_inscricao_ativa_estudante_atividade`) validam apenas a integridade de **cada linha isoladamente** (impedindo o *mesmo* aluno de se inscrever duas vezes). Como as transações inseriram estudantes distintos (`1` e `2`), nenhuma restrição de unicidade foi violada.
-2. **Por que o isolamento `READ COMMITTED` permitiu a anomalia (*Write Skew*)?**  
-   Sob o controle de concorrência multiversão (MVCC) no nível `READ COMMITTED`, cada consulta `SELECT` enxerga apenas os dados confirmados (`COMMIT`) antes do início daquela instrução, sem bloquear leituras nem escritas de outras transações em linhas diferentes. Como ambas as sessões leram o mesmo *snapshot* antes de qualquer `COMMIT` e tomaram decisões com base em uma contagem agregada (`COUNT(*)`), ocorreu uma **distorção de escrita (*write skew*)**.
-3. **Encaminhamento para o Desafio T3:**  
-   Para serializar o acesso à última vaga sem depender de bloqueios de tabela inteira, será necessário aplicar bloqueio explícito em nível de linha sobre a atividade disputada (`SELECT ... FOR UPDATE` em `lab_inscricoes.atividades WHERE id_atividade = 1`) antes de contabilizar as inscrições ativas e efetuar o `INSERT`.
 
 ---
 
 ## 3. Dúvidas e Pontos de Discussão com o Professor
 
-1. **Encapsulamento da regra de concorrência:** No Desafio `T3`, a validação com `SELECT ... FOR UPDATE` deve ser demonstrada apenas via bloco transacional explícito no script `05_concorrencia.sql` (para evidenciar passo a passo o bloqueio entre Sessão A e Sessão B), ou também é recomendável encapsulá-la em uma `FUNCTION`/`PROCEDURE` no banco?
-2. **Comparação entre estratégias de isolamento:** Na etapa final (`T4`), além da solução com `SELECT ... FOR UPDATE` em `READ COMMITTED`, vale incluir no relatório um teste comparativo mostrando o erro de serialização (`SQLSTATE 40001`) ao executar o mesmo cenário em nível `SERIALIZABLE` sem bloqueio explícito?

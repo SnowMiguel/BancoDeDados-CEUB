@@ -33,9 +33,9 @@ END $$;
 -- ----------------------------------------------------------------------------
 -- 2. CRIAÇÃO DOS TRÊS PERFIS EXIGIDOS (CREATE ROLE)
 -- ----------------------------------------------------------------------------
-CREATE ROLE administrador LOGIN PASSWORD 'Admin@2026#Lab';
-CREATE ROLE operador      LOGIN PASSWORD 'Oper@2026#Lab';
-CREATE ROLE consulta      LOGIN PASSWORD 'Cons@2026#Lab';
+CREATE ROLE administrador LOGIN PASSWORD 'adm12345678';
+CREATE ROLE operador      LOGIN PASSWORD 'opera123456';
+CREATE ROLE consulta      LOGIN PASSWORD 'consulta123';
 
 -- ----------------------------------------------------------------------------
 -- 3. REVOGAÇÃO PREVENTIVA DE PRIVILÉGIOS PÚBLICOS (MENOR PRIVILÉGIO)
